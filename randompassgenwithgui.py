@@ -71,36 +71,37 @@ def copy_to_clipboard():
     generated_random_password = password_text_box.get(1.0, tk.END).strip()
     pyperclip.copy(generated_random_password)
     pyperclip.paste()
-#    print(pyperclip.paste())
+    # print(pyperclip.paste())
     messagebox.showinfo("Copied!", "Password copied to clipboard")
 
 
 def get_slider_val(*args):
     value = format(slider_variable.get())
     password_length_slider_label.config(text=value)
-#    print(value)
+    # print(value)
     password_text_box.config(state=tk.NORMAL)
     insert_to_textbox()
 
+
 # Window GUI section
-window = tk.Tk()
-window.title("Random Password Generator")
-window.resizable(False, False)   # window size can(not) be change.
+window = tk.Tk()  # create a window
+window.title("Random Password Generator")  # set a title
+window.resizable(False, False)   # window size can(not) be changed.
 # End
 
-# get screen height and width by winfo_
+# get screen height and width with winfo_
 get_screen_height = window.winfo_screenheight()
 get_screen_width = window.winfo_screenwidth()
 window_height = 200  # set window_y (size)
 window_width = 350  # set window_x (size)
 # End
 
-# Calculations to get center of the screen
+# Calculations to get the center of the screen
 get_center_x = int((get_screen_width/2) - (window_width/2))
 get_center_y = int((get_screen_height/2) - (window_height/2))
 # End
 
-window.geometry(f'{window_width}x{window_height}-{get_center_x}+{get_center_y}')  # set window to center of the screen
+window.geometry(f'{window_width}x{window_height}-{get_center_x}+{get_center_y}')  # set the window to the center of the screen
 
 # Create a button
 copy_generated_password = ttk.Button(window, text="Copy to Clipboard", command=copy_to_clipboard)
@@ -126,13 +127,13 @@ checkbox_characters = ttk.Checkbutton(window, text="Uppercase", onvalue=True, of
 checkbox_characters.place(x=window_width/18, y=window_height-30, anchor=tk.W)
 # create checkbox for lowercase
 lowercase_variable = tk.BooleanVar()
-checkbox_characters = ttk.Checkbutton(window, text="Lowercasecase", onvalue=True, offvalue=False, command=get_button_status_lowercase, variable=lowercase_variable)
+checkbox_characters = ttk.Checkbutton(window, text="Lowercase", onvalue=True, offvalue=False, command=get_button_status_lowercase, variable=lowercase_variable)
 checkbox_characters.place(x=window_width/18, y=window_height-50, anchor=tk.W)
 # create checkbox for numbers
 number_variable = tk.BooleanVar()
 checkbox_numbers = ttk.Checkbutton(window, text="Numbers", onvalue=True, offvalue=False, command=get_button_status_numbers, variable=number_variable)
 checkbox_numbers.place(x=window_width/18, y=window_height-70, anchor=tk.W)
-# Create a text box for random password to show
+# Create a text box for a random password to show
 password_text_box = tk.Text(window, width=20, height=1)
 password_text_box.place(x=window_width-255, y=window_height-130, anchor=tk.W)
 # Run the main event loop
