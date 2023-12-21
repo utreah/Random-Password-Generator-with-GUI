@@ -71,7 +71,7 @@ def copy_to_clipboard():
     generated_random_password = password_text_box.get(1.0, tk.END).strip()
     pyperclip.copy(generated_random_password)
     pyperclip.paste()
-    print(pyperclip.paste())
+#    print(pyperclip.paste())
     messagebox.showinfo("Copied!", "Password copied to clipboard")
 
 
