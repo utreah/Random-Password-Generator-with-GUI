@@ -82,15 +82,18 @@ def get_slider_val(*args):
     password_text_box.config(state=tk.NORMAL)
     insert_to_textbox()
 
-
+# Window GUI section
 window = tk.Tk()
 window.title("Random Password Generator")
-window.resizable(True, True)   # window size can(not) be change.
+window.resizable(False, False)   # window size can(not) be change.
+# End
+
 # get screen height and width by winfo_
 get_screen_height = window.winfo_screenheight()
 get_screen_width = window.winfo_screenwidth()
 window_height = 200  # set window_y (size)
 window_width = 350  # set window_x (size)
+# End
 
 # Calculations to get center of the screen
 get_center_x = int((get_screen_width/2) - (window_width/2))
@@ -105,7 +108,7 @@ copy_generated_password.pack()
 copy_generated_password.place(x=window_width/2, y=window_height, anchor=tk.S)
 # End
 
-# Create a slider between min = 7 and max = 18
+# Create a slider between min = 6 and max = 18
 slider_variable = tk.IntVar()
 password_length_slider = ttk.Scale(window, from_=6, to=18, orient='horizontal', command=get_slider_val, variable=slider_variable)
 password_length_slider_label = ttk.Label(window, text="1")
